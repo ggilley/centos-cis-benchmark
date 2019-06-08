@@ -3,7 +3,7 @@
 
 # 1.1.19 - Ensure nosuid option set on removable media partitions (Not Scored)
 
-MEDIA=$(mount -l -t vfat,iso9660,ext)
+MEDIA=$(mount -l -t vfat,iso9660,ext | grep -v "/boot/efi")
 
 if [[ -z $MEDIA ]]; then
         exit 0
