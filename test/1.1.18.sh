@@ -8,5 +8,5 @@ MEDIA=$(mount -l -t vfat,iso9660,ext)
 if [[ -z $MEDIA ]]; then
         exit 0
 else
-        echo $MEDIA | grep "nodev" || exit $?
+        echo $MEDIA | grep -v "/boot/efi" | grep "nodev" || exit $?
 fi
